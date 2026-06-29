@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { Logo } from './logo'
 
 const links = [
-  ['Home', '/'], ['AI Prompts', '/ai-prompts'], ['AI Video', '/ai-video'], ['Prompt Library', '/library'], ['About', '/about']
+  ['Home', '/'], ['AI Prompts', '/ai-prompts'], ['Prompt Library', '/library'], ['About', '/about']
 ]
 
 export function Header() {
