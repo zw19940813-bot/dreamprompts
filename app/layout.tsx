@@ -9,7 +9,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dreamprompts.net'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: 'DreamPrompts — Better prompts. Brighter ideas.', template: '%s | DreamPrompts' },
+  title: { default: 'AI Prompt Refinement: Elevate Your AI Video Quality.', template: '%s | DreamPrompts' },
   description: 'Practical AI prompts, creative workflows, and thoughtful guides for ChatGPT, Claude, Midjourney, Sora, and beyond.',
   applicationName: 'DreamPrompts',
   alternates: { canonical: '/' },
