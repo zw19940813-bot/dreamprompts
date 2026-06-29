@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default async function AiPromptsPage() {
   const posts = (await getPosts()).filter((post) => !post.categories?.some((category) => category.slug === 'ai-video'))
-  return <div className="container-shell py-16 md:py-24">
+  return <div className="container-shell pb-12 pt-8 md:pb-16 md:pt-10">
     <div className="max-w-3xl">
       <div className="eyebrow text-blue">Think clearly, ask better</div>
       <h1 className="serif mt-4 text-balance text-5xl font-bold tracking-[-.05em] md:text-7xl">AI prompts with a point of view.</h1>
