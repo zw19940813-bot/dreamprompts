@@ -40,16 +40,16 @@ export default async function HomePage() {
             <div className="rounded-2xl bg-ink p-7 text-white">
               <div className="eyebrow text-blue">Start here</div>
               <h3 className="serif mt-3 text-2xl font-bold">
-                The art of a useful prompt
+                Explore the Prompt Library
               </h3>
               <p className="mt-3 text-sm leading-6 text-white/60">
-                Our short guide to context, constraints, examples, and iteration.
+                Copy-ready prompts for ChatGPT, Claude, Midjourney, Sora, and more.
               </p>
               <Link
-                href="/posts/briefing-prompts-for-complex-work"
+                href="/library"
                 className="mt-5 inline-block text-sm font-semibold"
               >
-                Read the guide →
+                Browse prompts →
               </Link>
             </div>
 
