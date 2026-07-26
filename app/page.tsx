@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { LogoMark } from '@/components/logo'
 import { PostCard } from '@/components/post-card'
 import { getPosts } from '@/lib/sanity'
 
@@ -10,23 +9,17 @@ export default async function HomePage() {
 
   return (
     <section id="latest" className="container-shell scroll-mt-24 py-16 md:py-24">
-      <div className="mb-10 border-b border-black/10 pb-5">
-        <Link href="/" aria-label="Back to homepage" className="mb-7 inline-flex">
-          <LogoMark className="h-16 w-16 rounded-2xl" />
-        </Link>
-
-        <div className="flex items-end justify-between">
-          <div>
-            <div className="eyebrow text-blue">The journal</div>
-            <h2 className="serif mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-              dreamprompts
-            </h2>
-          </div>
-
-          <Link href="/posts" className="text-sm font-bold text-ink transition hover:text-blue">
-            View more
-          </Link>
+      <div className="mb-10 flex items-end justify-between border-b border-black/10 pb-5">
+        <div>
+          <div className="eyebrow text-blue">The journal</div>
+          <h2 className="serif mt-2 text-3xl font-bold tracking-tight md:text-4xl">
+            dreamprompts
+          </h2>
         </div>
+
+        <Link href="/posts" className="text-sm font-bold text-ink transition hover:text-blue">
+          View more
+        </Link>
       </div>
 
       {featured ? <PostCard post={featured} featured /> : null}
