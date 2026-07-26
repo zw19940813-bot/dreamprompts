@@ -10,12 +10,9 @@ export default async function HomePage() {
   return (
     <section id="latest" className="container-shell scroll-mt-24 py-16 md:py-24">
       <div className="mb-10 flex items-end justify-between border-b border-black/10 pb-5">
-        <div>
-          <div className="eyebrow text-blue">The journal</div>
-          <h2 className="serif mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-            dreamprompts
-          </h2>
-        </div>
+        <h1 className="serif text-4xl font-bold tracking-tight md:text-5xl">
+          dreamprompts
+        </h1>
 
         <Link href="/posts" className="text-sm font-bold text-ink transition hover:text-blue">
           View more
