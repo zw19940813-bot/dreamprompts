@@ -21,3 +21,68 @@ a { text-decoration: none; color: inherit; }
 .prose-dp pre { overflow-x: auto; border-radius: 12px; background: #0a0a0a; color: #f5f5f5; padding: 1.25rem; font-family: ui-monospace, monospace; font-size: .9rem; }
 .prose-dp img { width: 100%; border-radius: 16px; }
 @media (max-width: 640px) { .container-shell { width: min(100% - 28px, 1180px); } }
+.post-cover {
+  position: relative;
+  min-height: 190px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #071813 0%, #10251e 56%, #050807 100%);
+}
+
+.post-cover-featured {
+  min-height: 320px;
+}
+
+.post-cover::before {
+  content: "";
+  position: absolute;
+  inset: 28px;
+  border: 1px solid rgba(244, 247, 241, 0.15);
+  border-radius: 12px;
+}
+
+.post-cover-label {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.post-cover-dot {
+  position: absolute;
+  left: 24%;
+  top: 52%;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: #6faf96;
+}
+
+.post-cover-line-one,
+.post-cover-line-two {
+  position: absolute;
+  height: 4px;
+  border-radius: 999px;
+}
+
+.post-cover-line-one {
+  left: 20%;
+  top: 48%;
+  width: 150px;
+  background: #d8e7de;
+  transform: rotate(-20deg);
+}
+
+.post-cover-line-two {
+  right: 18%;
+  bottom: 28%;
+  width: 130px;
+  background: #34d399;
+  transform: rotate(-18deg);
+}
