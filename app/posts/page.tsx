@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { LogoMark } from '@/components/logo'
 import { PostCard } from '@/components/post-card'
 import { getPosts } from '@/lib/sanity'
 
 export const metadata: Metadata = {
-  title: 'Article Directory',
+  title: 'AI Video Prompt',
   description: 'Browse AI video prompt refinement articles, workflows, and practical guides.',
   alternates: { canonical: '/posts' },
 }
@@ -26,15 +25,9 @@ export default async function PostsPage({
   return (
     <section className="container-shell py-16 md:py-24">
       <div className="mb-10 border-b border-black/10 pb-5">
-        <div className="flex items-center gap-4">
-          <LogoMark className="h-12 w-12 rounded-2xl" />
-          <div>
-            <div className="eyebrow text-blue">Directory</div>
-            <h1 className="serif mt-2 text-4xl font-bold tracking-tight md:text-5xl">
-              Article Directory
-            </h1>
-          </div>
-        </div>
+        <h1 className="serif text-4xl font-bold tracking-tight md:text-5xl">
+          AI Video Prompt
+        </h1>
       </div>
 
       <div className="grid gap-x-7 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
