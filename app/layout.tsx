@@ -1,3 +1,4 @@
+import { Header } from '@/components/header'
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
