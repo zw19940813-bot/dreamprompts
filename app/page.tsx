@@ -22,7 +22,7 @@ export default async function HomePage() {
           </div>
 
           <Link
-            href="/library"
+            href="/posts"
             className="text-sm font-bold text-ink transition hover:text-blue"
           >
             View more
@@ -39,7 +39,7 @@ export default async function HomePage() {
 
         <div className="mt-14 flex justify-center">
           <Link
-            href="/library"
+            href="/posts"
             className="rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:bg-blue"
           >
             View More Articles
