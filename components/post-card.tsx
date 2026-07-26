@@ -11,6 +11,16 @@ type PostCardProps = {
     readTime?: string
     date?: string
     publishedAt?: string
+    coverImage?: string
+    image?: string
+    imageUrl?: string
+    coverImageUrl?: string
+    mainImage?: {
+      asset?: {
+        url?: string
+      }
+      alt?: string
+    }
   }
   featured?: boolean
 }
@@ -26,13 +36,38 @@ function getDate(post: PostCardProps['post']) {
   return value ? value.slice(0, 10) : ''
 }
 
-function Cover({ label, featured = false }: { label: string; featured?: boolean }) {
+function getImage(post: PostCardProps['post']) {
+  return (
+    post.coverImageUrl ||
+    post.imageUrl ||
+    post.coverImage ||
+    post.image ||
+    post.mainImage?.asset?.url ||
+    ''
+  )
+}
+
+function Cover({
+  label,
+  image,
+  featured = false,
+}: {
+  label: string
+  image: string
+  featured?: boolean
+}) {
   return (
     <div className={featured ? 'post-cover post-cover-featured' : 'post-cover'}>
+      {image ? <img src={image} alt="" className="post-cover-image" /> : null}
+      <div className="post-cover-shade" />
+      {!image ? (
+        <>
+          <span className="post-cover-dot" />
+          <span className="post-cover-line-one" />
+          <span className="post-cover-line-two" />
+        </>
+      ) : null}
       <span className="post-cover-label">{label}</span>
-      <span className="post-cover-dot" />
-      <span className="post-cover-line-one" />
-      <span className="post-cover-line-two" />
     </div>
   )
 }
@@ -44,12 +79,13 @@ export function PostCard({ post, featured = false }: PostCardProps) {
   const category = post.category || 'AI Prompt'
   const excerpt = post.excerpt || post.description || ''
   const date = getDate(post)
+  const image = getImage(post)
 
   if (featured) {
     return (
       <article className="grid gap-8 md:grid-cols-[1.05fr_.85fr] md:items-center">
         <Link href={href} aria-label={`Read ${title}`}>
-          <Cover label="Featured System" featured />
+          <Cover label="Featured System" image={image} featured />
         </Link>
 
         <div>
@@ -67,9 +103,9 @@ export function PostCard({ post, featured = false }: PostCardProps) {
   }
 
   return (
-    <article className="group">
+    <article className="group flex h-full flex-col">
       <Link href={href} aria-label={`Read ${title}`}>
-        <Cover label={category} />
+        <Cover label={category} image={image} />
       </Link>
 
       <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-xs font-bold text-muted">
@@ -83,9 +119,11 @@ export function PostCard({ post, featured = false }: PostCardProps) {
         </Link>
       </h3>
 
-      {excerpt ? <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted">{excerpt}</p> : null}
+      {excerpt ? (
+        <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted">{excerpt}</p>
+      ) : null}
 
-      <div className="mt-5 flex items-center justify-between border-b border-black/10 pb-5 text-sm font-bold">
+      <div className="mt-auto flex items-center justify-between border-b border-black/10 pb-5 pt-5 text-sm font-bold">
         <span className="text-muted">{date}</span>
         <Link href={href}>Read</Link>
       </div>
