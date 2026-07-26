@@ -5,8 +5,8 @@ import { PostCard } from '@/components/post-card'
 import { getPosts } from '@/lib/sanity'
 
 export const metadata: Metadata = {
-  title: 'Articles',
-  description: 'AI video prompt refinement articles, workflows, and practical guides.',
+  title: 'Article Directory',
+  description: 'Browse AI video prompt refinement articles, workflows, and practical guides.',
   alternates: { canonical: '/posts' },
 }
 
@@ -25,20 +25,16 @@ export default async function PostsPage({
 
   return (
     <section className="container-shell py-16 md:py-24">
-      <div className="mb-10 flex items-end justify-between border-b border-black/10 pb-5">
+      <div className="mb-10 border-b border-black/10 pb-5">
         <div className="flex items-center gap-4">
           <LogoMark className="h-12 w-12 rounded-2xl" />
           <div>
-            <div className="eyebrow text-blue">Articles</div>
+            <div className="eyebrow text-blue">Directory</div>
             <h1 className="serif mt-2 text-4xl font-bold tracking-tight md:text-5xl">
-              Prompt Refinement
+              Article Directory
             </h1>
           </div>
         </div>
-
-        <Link href="/" className="text-sm font-bold text-ink transition hover:text-blue">
-          Home
-        </Link>
       </div>
 
       <div className="grid gap-x-7 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
@@ -47,7 +43,7 @@ export default async function PostsPage({
         ))}
       </div>
 
-      {(hasPreviousPage || hasNextPage) ? (
+      {hasPreviousPage || hasNextPage ? (
         <div className="mt-14 flex justify-center gap-3">
           {hasPreviousPage ? (
             <Link
