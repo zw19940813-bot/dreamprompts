@@ -86,3 +86,84 @@ a { text-decoration: none; color: inherit; }
   background: #34d399;
   transform: rotate(-18deg);
 }
+.post-cover {
+  position: relative;
+  min-height: 190px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #071813 0%, #10251e 56%, #050807 100%);
+}
+
+.post-cover-featured {
+  min-height: 320px;
+}
+
+.post-cover-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.post-cover-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.04));
+}
+
+.post-cover::before {
+  content: "";
+  position: absolute;
+  inset: 28px;
+  z-index: 1;
+  border: 1px solid rgba(244, 247, 241, 0.15);
+  border-radius: 12px;
+}
+
+.post-cover-label {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 2;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.post-cover-dot {
+  position: absolute;
+  left: 24%;
+  top: 52%;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: #6faf96;
+}
+
+.post-cover-line-one,
+.post-cover-line-two {
+  position: absolute;
+  height: 4px;
+  border-radius: 999px;
+}
+
+.post-cover-line-one {
+  left: 20%;
+  top: 48%;
+  width: 150px;
+  background: #d8e7de;
+  transform: rotate(-20deg);
+}
+
+.post-cover-line-two {
+  right: 18%;
+  bottom: 28%;
+  width: 130px;
+  background: #34d399;
+  transform: rotate(-18deg);
+}
