@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { AdSlot } from '@/components/ad-slot'
 import { PostCard } from '@/components/post-card'
 import { getPosts } from '@/lib/sanity'
 
 export default async function HomePage() {
   const posts = await getPosts()
   const [featured, ...rest] = posts
+  const displayPosts = rest.slice(0, 9)
 
   return (
     <>
@@ -17,55 +17,34 @@ export default async function HomePage() {
           <div>
             <div className="eyebrow text-blue">The journal</div>
             <h2 className="serif mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-              Latest thinking
+              dreamprompts
             </h2>
           </div>
-          <span className="hidden text-sm text-muted md:block">
-            Ideas worth trying, not just saving.
-          </span>
+
+          <Link
+            href="/library"
+            className="text-sm font-bold text-ink transition hover:text-blue"
+          >
+            View more
+          </Link>
         </div>
 
         {featured && <PostCard post={featured} featured />}
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_300px]">
-          <div className="grid gap-x-8 gap-y-12 md:grid-cols-2">
-            {rest.map((post) => (
-              <PostCard key={post._id} post={post} />
-            ))}
-          </div>
-
-          <aside className="space-y-8">
-            <AdSlot format="rectangle" />
-
-            <div className="rounded-2xl bg-ink p-7 text-white">
-              <div className="eyebrow text-blue">Start here</div>
-              <h3 className="serif mt-3 text-2xl font-bold">
-                Explore the Prompt Library
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-white/60">
-                Copy-ready prompts for ChatGPT, Claude, Midjourney, Sora, and more.
-              </p>
-              <Link
-                href="/library"
-                className="mt-5 inline-block text-sm font-semibold"
-              >
-                Browse prompts →
-              </Link>
-            </div>
-
-            <div className="border-t border-black/10 pt-6">
-              <div className="eyebrow mb-4 text-muted">Editor’s note</div>
-              <p className="serif text-lg leading-7">
-                “The best prompt isn’t the cleverest sentence. It’s the clearest
-                shared understanding.”
-              </p>
-            </div>
-          </aside>
+        <div className="mt-14 grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+          {displayPosts.map((post) => (
+            <PostCard key={post._id} post={post} />
+          ))}
         </div>
-      </section>
 
-      <section className="container-shell pb-20">
-        <AdSlot format="leaderboard" />
+        <div className="mt-14 flex justify-center">
+          <Link
+            href="/library"
+            className="rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:bg-blue"
+          >
+            View More Articles
+          </Link>
+        </div>
       </section>
     </>
   )
